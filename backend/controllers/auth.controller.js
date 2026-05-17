@@ -24,15 +24,17 @@ export const signup = async (req, res) => {
 
     // https://avatar-placeholder.iran.liara.run/
 
-    const boyProfilePic = `https://api.dicebear.com/9.x/adventurer/svg?seed=${username}`;
-    const girlProfilePic = `https://api.dicebear.com/9.x/notionists/svg?seed=${username}`;
+    // const boyProfilePic = `https://api.dicebear.com/9.x/adventurer/svg?seed=${username}`;
+    // const girlProfilePic = `https://api.dicebear.com/9.x/notionists/svg?seed=${username}`;
+    const profilePic = `https://unavatar.io/threads/${username}`;
 
     const newUser = new User({
       fullName,
       username,
       password: hashedPassword,
       gender,
-      profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
+      // profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
+      profilePic: profilePic,
     });
 
     if (newUser) {
